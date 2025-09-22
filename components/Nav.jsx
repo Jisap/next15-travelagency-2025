@@ -49,7 +49,35 @@ const Nav = () => {
               <span>Booking@skyfare.com</span>
             </li>
           </ul>
+
+          <div className="flex items-center justify-between gap-3 lg:justify-center text-[#727272] w-full lg:w-auto">
+            <ul className="flex items-center gap-3">
+              <li className="">
+                <FontAwesomeIcon icon={faFacebook} className="text-[#8192a0]" />
+              </li>
+              <li className="">
+                <FontAwesomeIcon icon={faFlickr} className="text-[#8192a0]" />
+              </li>
+              <li className="">
+                <FontAwesomeIcon icon={faXTwitter} className="text-[#8192a0]" />
+              </li>
+            </ul>
+
+            <ul className="flex items-center gap-3 ps-3">
+              <li className="lg:text-md text-sm cursor-pointer">
+                <i className="ri-lock-line pr-1 text-[#8192a0]" />
+                <span>Login</span>
+              </li>
+              <li className="lg:text-md text-sm cursor-pointer">
+                <FontAwesomeIcon icon={faUser} className="text-[#8192a0]" />
+                <span>Sign Up</span>
+              </li>
+
+            </ul>
+          </div>
         </div>
+
+        {/* Main nav menu */}
       </nav>
     </>
   )
