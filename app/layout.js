@@ -6,6 +6,8 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
 import "remixicon/fonts/remixicon.css";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 
 const unbounded = Unbounded({
   variable: "--font-unbounded",
@@ -31,7 +33,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${sora.variable} ${unbounded.variable} antialiased`}
       >
+        <Nav />
         {children}
+        <Footer />
       </body>
     </html>
   );
