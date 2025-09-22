@@ -156,7 +156,7 @@ const Nav = () => {
           {/* Mobile Mennu Dropdown */}
           <div className={`
             lg:hidden flex flex-col items-stretch px-0 gap-1 bg-[#f7f7f7] shadow-md absolute left-0 w-full overflow-hidden transition-all duration-500 ease-in-out
-            ${isOpen ? "max-h-[500px] top-full mt-3 opacity-100 py-2" : "max-h-0 opacity-0 py-0 top-full"}
+            ${isOpen ? "max-h-[500px] top-full mt-3 opacity-100" : "max-h-0 opacity-0 py-0 top-full"}
           `}>
             <li className="group w-full hover:bg-gray-200 transition-colors duration-200">
               <a href="#" className="block w-full px-6 py-4 font-[500] text-[#697e8a] transition-colors duration-200 group-hover:text-black">
