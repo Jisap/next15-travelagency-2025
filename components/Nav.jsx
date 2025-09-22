@@ -5,7 +5,7 @@ import { faBars, faEnvelope, faPhone, faTimes, faUser } from "@fortawesome/free-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Link from "next/link"
 import { useEffect, useState } from "react"
-
+import { AnimatePresence, motion } from 'framer-motion';
 
 
 const Nav = () => {
@@ -135,14 +135,60 @@ const Nav = () => {
               className="toggle-btn lg:hidden cursor-pointer"
               onClick={() => setIsOpen(!isOpen)}
             >
-              <FontAwesomeIcon
-                icon={isOpen ? faTimes : faBars}
-                className="text-[#193555] text-xlt"
-              />
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={isOpen ? 'times' : 'bars'}
+                  initial={{ opacity: 0, rotate: -90, scale: 0.9 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: 90, scale: 0.9 }}
+                  transition={{ duration: 0.22, ease: 'easeInOut' }}
+                  className="inline-flex"
+                >
+                  <FontAwesomeIcon
+                    icon={isOpen ? faTimes : faBars}
+                    className="text-[#193555] text-xlt"
+                  />
+                </motion.span>
+              </AnimatePresence>
             </div>
           </div>
 
-          {/* Mobile Mennu */}
+          {/* Mobile Mennu Dropdown */}
+          <div className={`
+            lg:hidden flex flex-col items-center gap-6 bg-[#f7f7f7] shadow-md absolute left-0 w-full overflow-hidden transitiona-ll duration-500 ease-in-out
+            ${isOpen ? "max-h-[500px] top-full mt-3 opacity-100 py-6" : "max-h-0 opacity-0 py-0 top-full"}
+          `}>
+            <li>
+              <a href="#" className="font-[500] hover:text-black">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#" className="font-[500] hover:text-black">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#" className="font-[500] hover:text-black">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#" className="font-[500] hover:text-black">
+                Tours
+              </a>
+            </li>
+            <li>
+              <a href="#" className="font-[500] hover:text-black">
+                Faqs
+              </a>
+            </li>
+            <li>
+              <a href="#" className="font-[500] hover:text-black">
+                Contact
+              </a>
+            </li>
+          </div>
         </div>
       </nav>
     </>
