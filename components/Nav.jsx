@@ -39,10 +39,14 @@ const Nav = () => {
           nav-top w-full flex justify-between items-center gap-3 px-[2%] sm:px-[8%] lg:px-[12%] overflow-hidden transtion-all duration-500 ease-in-out
           ${isScrolled ? "max-h-0 opacity-0 py-0" : "max-h-[200px] opacity-100 py-3"}
         `}>
-          <ul >
-            <li>
+          <ul className="hidden lg:flex items-center gap-3 text-[#727272]">
+            <li className="text-sm">
               <FontAwesomeIcon icon={faPhone} className="pr-1 text-[#727272]" />
               <span>+91 54 0352 3524</span>
+            </li>
+            <li className="text-sm">
+              <FontAwesomeIcon icon={faEnvelope} className="pr-1 text-[#8192a0]" />
+              <span>Booking@skyfare.com</span>
             </li>
           </ul>
         </div>
