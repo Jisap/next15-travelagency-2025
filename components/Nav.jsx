@@ -3,6 +3,7 @@
 import { faFacebook, faFlickr, faXTwitter } from "@fortawesome/free-brands-svg-icons"
 import { faBars, faEnvelope, faPhone, faTimes, faUser } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Link from "next/link"
 import { useEffect, useState } from "react"
 
 
@@ -78,6 +79,56 @@ const Nav = () => {
         </div>
 
         {/* Main nav menu */}
+        <div className={`
+          w-full px-[12%] sm:px-[8%] lg:px-[12%] text-start lg:text-center relative flex justify-between lg:justify-center nav-menu-container transition-all duration-500 ease-in-out
+          ${isScrolled ? "bg-white" : "bg-transparent"}
+        `}>
+            {/* Logo For Mobile */}
+            <div className="lg:hidden flex log text-2xl uppercase font-semibold">
+              <a href="#" className="unbounded-font">
+                Sky<span className="unbounded-font">Fare</span>
+              </a>
+            </div>
+
+            {/* Desktop menu */}
+            <ul className="nav-menu hidden lg:flex w-full justify-center items-center gap-14 py-5 relative">
+              <li>
+                <Link href="/" className="active font-[500] hover:text-black transition-colors duration-500">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/About" className="active font-[500] text-[#697e8a] hover:text-black transition-colors duration-500">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/About" className="active font-[500] text-[#697e8a] hover:text-black transition-colors duration-500">
+                  About
+                </Link>
+              </li>
+              <div className="logo text-3xl uppercase font-semibold">
+                <Link href="#" className="unbounded-font">
+                  Sky<span className="unbounded-font">Fare</span>
+                </Link>
+              </div>
+            <li>
+              <Link href="/Faq" className="active font-[500] text-[#697e8a] hover:text-black transition-colors duration-500">
+                Faq
+              </Link>
+            </li>
+            <li>
+              <Link href="/Blog" className="active font-[500] text-[#697e8a] hover:text-black transition-colors duration-500">
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link href="/Contact" className="active font-[500] text-[#697e8a] hover:text-black transition-colors duration-500">
+                Contact
+              </Link>
+            </li>
+            </ul>
+        </div>
       </nav>
     </>
   )
