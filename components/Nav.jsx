@@ -27,7 +27,7 @@ const Nav = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  },[])
+  }, [])
 
   return (
     <>
@@ -83,35 +83,35 @@ const Nav = () => {
           w-full px-[12%] sm:px-[8%] lg:px-[12%] text-start lg:text-center relative flex justify-between lg:justify-center nav-menu-container transition-all duration-500 ease-in-out
           ${isScrolled ? "bg-white" : "bg-transparent"}
         `}>
-            {/* Logo For Mobile */}
-            <div className="lg:hidden flex log text-2xl uppercase font-semibold">
-              <a href="#" className="unbounded-font">
-                Sky<span className="unbounded-font">Fare</span>
-              </a>
-            </div>
+          {/* Logo For Mobile */}
+          <div className="lg:hidden flex log text-2xl uppercase font-semibold">
+            <a href="#" className="unbounded-font">
+              Sky<span className="unbounded-font">Fare</span>
+            </a>
+          </div>
 
-            {/* Desktop menu */}
-            <ul className="nav-menu hidden lg:flex w-full justify-center items-center gap-14 py-5 relative">
-              <li>
-                <Link href="/" className="active font-[500] hover:text-black transition-colors duration-500">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/About" className="active font-[500] text-[#697e8a] hover:text-black transition-colors duration-500">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/About" className="active font-[500] text-[#697e8a] hover:text-black transition-colors duration-500">
-                  About
-                </Link>
-              </li>
-              <div className="logo text-3xl uppercase font-semibold">
-                <Link href="#" className="unbounded-font">
-                  Sky<span className="unbounded-font">Fare</span>
-                </Link>
-              </div>
+          {/* Desktop menu */}
+          <ul className="nav-menu hidden lg:flex w-full justify-center items-center gap-14 py-5 relative">
+            <li>
+              <Link href="/" className="active font-[500] hover:text-black transition-colors duration-500">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/About" className="active font-[500] text-[#697e8a] hover:text-black transition-colors duration-500">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link href="/About" className="active font-[500] text-[#697e8a] hover:text-black transition-colors duration-500">
+                About
+              </Link>
+            </li>
+            <div className="logo text-3xl uppercase font-semibold">
+              <Link href="#" className="unbounded-font">
+                Sky<span className="unbounded-font">Fare</span>
+              </Link>
+            </div>
             <li>
               <Link href="/Faq" className="active font-[500] text-[#697e8a] hover:text-black transition-colors duration-500">
                 Faq
@@ -127,7 +127,22 @@ const Nav = () => {
                 Contact
               </Link>
             </li>
-            </ul>
+          </ul>
+
+          {/* Mobile Toggle */}
+          <div className="flex justify-center items-center">
+            <div
+              className="toggle-btn lg:hidden cursor-pointer"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              <FontAwesomeIcon
+                icon={isOpen ? faTimes : faBars}
+                className="text-[#193555] text-xlt"
+              />
+            </div>
+          </div>
+
+          {/* Mobile Mennu */}
         </div>
       </nav>
     </>
