@@ -1,11 +1,10 @@
 import Image from "next/image";
+import Index from "./index/Page";
 
 export default function Home() {
   return (
-    <div>
-      <h1>
-        Hola mundo
-      </h1>
-    </div>
+    <>
+      <Index />
+    </>
   );
 }
