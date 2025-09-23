@@ -19,8 +19,9 @@ const BookingSidebar = ({ tour }) => {
 
   return (
     <>
-      <div className="xl:w-[30%] lg:w-[40%] w-full h-fit sticky top-5 border-2 border-gray-100 rounded-md py-5 px-3 flex flex-col">
-        <div className="flex-shrink-0">
+      {/* 1. Se quita `h-fit` para que el contenedor pueda estirarse y ocupar toda la altura */}
+      <div className="xl:w-[30%] lg:w-[40%] w-full sticky top-5 border-2 border-gray-100 rounded-md py-5 px-3 flex flex-col">
+        <div className="flex-shrink-0"> {/* Este div no crecerá, manteniendo su tamaño */}
           <h4 className="text-lg font-semibold pb-1">
             Date :
           </h4>
@@ -54,18 +55,19 @@ const BookingSidebar = ({ tour }) => {
           </button>
         </div>
 
-        <div className="flex-grow flex flex-col mt-5" style={{ height: 'calc(100vh - 600px)', minHeight: '400px' }}>
+        {/* 2. Se quita el `style` y se añade `min-h-0` para que flexbox funcione correctamente */}
+        <div className="flex-grow flex flex-col mt-5 min-h-0">
           <h4 className="text-lg font-semibold pb-2 flex-shrink-0">
             Recommendation Tours:
           </h4>
 
-          {/* 3. Usa los Web Components de Swiper */}
+          {/* 3. `flex-grow` hará que el carrusel ocupe todo el espacio vertical restante */}
           <swiper-container
             space-between="20"
             slides-per-view="1"
             pagination-clickable="false"
             navigation="true"
-            class="travel-wrapper recommendation-slider flex-grow"
+            class="travel-wrapper recommendation-slider flex-grow" 
           >
             {toursData.map((tour) => (
               <swiper-slide key={tour.id}>

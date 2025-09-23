@@ -90,19 +90,10 @@
 .recommendation-slider {
   --swiper-navigation-size: 28px;
   --swiper-theme-color: #193555;
-  height: 100%;
-  min-height: 0;
 }
 
 .recommendation-slider swiper-slide {
   height: 100%;
-  min-height: 0;
-}
-
-/* Asegurar que el contenedor del swiper ocupe todo el espacio disponible */
-.travel-wrapper {
-  height: 100%;
-  min-height: 0;
 }
 
 /* Posicionar la paginación de forma absoluta para que no afecte el layout */
