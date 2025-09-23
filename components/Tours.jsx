@@ -29,7 +29,7 @@ const Tours = () => {
           <Link href={`/ToursDetails/${tour.id}`} key={tour.id}>
             <div className="travel-item rounded-xl overflow-hidden relative group transition-all duration-300">
               <Image
-                src={tour.Images}
+                src={tour.mainImage}
                 alt={tour.title}
                 height={300}
                 width={300}

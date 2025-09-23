@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import toursData from "@/data/ToursData.json"
 import { notFound } from "next/navigation"
-//import  BookingSidebar from "@/components/BookingSidebar"
+import  BookingSidebar from "@/components/BookingSidebar"
 
 
 
@@ -50,7 +50,7 @@ const page = async({ params }) => {
           <div className="tour-details-content pt-4">
             <div className="flex justify-between items-center">
               <div>
-                <h2 className="text-xl sm:text-3xl font-[500px] pb-1">
+                <h2 className="text-xl sm:text-3xl font-[500] pb-1">
                   {tour.title}
                 </h2>
 
@@ -87,49 +87,50 @@ const page = async({ params }) => {
               Leave A Comment:
             </h4>
 
-            <form className="contact-form w-full">
-              <div className="w-full gap-3 flex flex-col lg:flex-row items-center mb-5">
-                <div className="flex flex-col w-full">
-                  <label className="pb-1 text-md font-[500px]">Your Name:</label>
-                  <input 
-                    type="text" 
-                    placeholder="Name: " 
-                    className="border-2 border-gray-100 outline-0 rounded-md" 
-                    required 
+            <form className="contact-form w-full flex flex-col gap-5">
+              {/* Name and Email Row */}
+              <div className="w-full flex flex-col lg:flex-row gap-5">
+                <div className="flex flex-col w-full lg:w-1/2">
+                  <label className="pb-1 text-md font-[500]">Your Name:</label>
+                  <input
+                    type="text"
+                    placeholder="Name: "
+                    className="border-2 border-gray-100 outline-0 rounded-md p-2"
+                    required
                   />
                 </div>
 
-                <div className="flex flex-col w-full">
-                  <label className="pb-1 text-md font-[500px]">Your Email:</label>
-                  <input 
-                    type="email" 
-                    placeholder="example@email.com " 
-                    className="border-2 border-gray-100 outline-0 rounded-md" 
-                    required 
+                <div className="flex flex-col w-full lg:w-1/2">
+                  <label className="pb-1 text-md font-[500]">Your Email:</label>
+                  <input
+                    type="email"
+                    placeholder="example@email.com "
+                    className="border-2 border-gray-100 outline-0 rounded-md p-2"
+                    required
                   />
                 </div>
-
-                <div className="flex flex-col w-full">
-                  <label className="pb-1 text-md font-[500px]">Your Comment:</label>
-                  <textarea 
-                    type="text" 
-                    placeholder="Message: " 
-                    className="border-2 border-gray-100 outline-0 rounded-md" 
-                    required 
-                  />
-                </div>
-
-                <button type="submit" className="btn text-white bg-[#193555] font-bold px-6 w-full py-4 rounded-md cursor-pointer transition-colors duration-300 mt-5 ">
-                  <a href="#" className="text-sm xl:text-md uppercase transition-colors duration-300 tracking-wider">
-                    Send Message
-                  </a>
-                </button>
               </div>
+
+              {/* Comment Textarea */}
+              <div className="flex flex-col w-full">
+                <label className="pb-1 text-md font-[500]">Your Comment:</label>
+                <textarea
+                  placeholder="Message: "
+                  className="border-2 border-gray-100 outline-0 rounded-md p-2 h-28"
+                  required
+                />
+              </div>
+
+              <button type="submit" className="btn text-white bg-[#193555] font-bold w-full py-3 rounded-md cursor-pointer transition-colors duration-300">
+                <span className="text-sm xl:text-md uppercase transition-colors duration-300 tracking-wider">
+                  Send Message
+                </span>
+              </button>
             </form>
           </div>
         </div>
 
-        
+        <BookingSidebar tour={tour} />
       </div>
     </>
   )
