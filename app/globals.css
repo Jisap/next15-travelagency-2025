@@ -89,5 +89,40 @@
 /* Swiper Customization */
 .recommendation-slider {
   --swiper-navigation-size: 28px;
-  --swiper-theme-color: #193555; /* También puedes cambiar el color aquí */
+  --swiper-theme-color: #193555;
+  height: 100%;
+  min-height: 0;
+}
+
+.recommendation-slider swiper-slide {
+  height: 100%;
+  min-height: 0;
+}
+
+/* Asegurar que el contenedor del swiper ocupe todo el espacio disponible */
+.travel-wrapper {
+  height: 100%;
+  min-height: 0;
+}
+
+/* Posicionar la paginación de forma absoluta para que no afecte el layout */
+.recommendation-slider .swiper-pagination {
+  position: absolute !important;
+  bottom: 10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Ajustar el contenido del swiper para que no se superponga con la paginación */
+.recommendation-slider .swiper-wrapper {
+  padding-bottom: 0 !important;
+}
+
+/* Opcional: Si quieres ocultar completamente la paginación */
+.recommendation-slider .swiper-pagination {
+  display: none;
 }

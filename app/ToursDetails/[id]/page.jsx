@@ -36,7 +36,7 @@ const page = async({ params }) => {
         </ul>
       </div>
 
-      <div className="tour-details-container w-full flex flex-col lg:flex-row justify-between items-start px-[2%] sm:px-[8%] lg:px-[12%] py-[50px] lg:py-[90px] gap-5 relative">
+      <div className="tour-details-container w-full flex flex-col lg:flex-row justify-between lg:items-stretch px-[2%] sm:px-[8%] lg:px-[12%] py-[50px] lg:py-[90px] gap-5 relative">
         <div className="xl:w-[70%] lg:w-[60%] w-full relative">
           <div className="relative w-full h-[400px]">
             <Image 
