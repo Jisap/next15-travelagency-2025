@@ -1,23 +1,21 @@
 "use client"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faAngleRight, faClose, faLocation, faUser, faUsers } from "@fortawesome/free-solid-svg-icons"
+import { faAngleRight, faClose, faLocation, faLocationDot, faUser, faUsers } from "@fortawesome/free-solid-svg-icons"
 import Link from "next/link"
 import Image from "next/image"
 import toursData from "@/data/ToursData.json"
-import { notFound } from "next/navigation"
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { useState } from "react"
-
-
+import { useEffect, useState } from "react"
+// 1. Importa `register` para inicializar Swiper Elements
+import { register } from "swiper/element/bundle";
 
 const BookingSidebar = ({ tour }) => {
-
   const [showForm, setShowForm] = useState(false);
+
+  // 2. Registra los Swiper elements cuando el componente se monte
+  useEffect(() => {
+    register();
+  }, []);
 
   return (
     <>
@@ -53,6 +51,56 @@ const BookingSidebar = ({ tour }) => {
             Book Now
           </a>
         </button>
+
+        <h4 className="text-lg font-semibold pb-2 mt-5">
+          Recommendation Tours:
+        </h4>
+
+        {/* 3. Usa los Web Components de Swiper */}
+        <swiper-container
+          space-between="20"
+          slides-per-view="1"
+          pagination-clickable="true"
+          navigation="true"
+          class="travel-wrapper recommendation-slider"
+        >
+          {toursData.map((tour) => (
+            <swiper-slide key={tour.id}>
+              <Link href={`/ToursDetails/${tour.id}`}>
+                <div className="travel-item rounded-xl overflow-hidden relative group transition-all duration-300">
+                  <Image
+                    src={tour.mainImage}
+                    alt={tour.title}
+                    height={300}
+                    width={300}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+
+                  <div className="travel-content absolute bottom-0 left-0 flex justify-between items-center w-full p-3 z-10 text-white bg-gradient-to-t from-black/70 to-transparent">
+                    <div>
+                      <h2 className="text-xl font-semibold unbounded-font pb-1">
+                        {tour.title}
+                      </h2>
+
+                      <p className="text-[#ffffff91] text-xs flex items-center gap-1">
+                        <FontAwesomeIcon icon={faLocationDot} />
+                        {tour.location}
+                      </p>
+                    </div>
+
+                    <h4 className="text-xl font-semibold unbounded-font text-right">
+                      <span className="text-[#ffffff91] text-xs font-normal">
+                        Start From
+                      </span> {" "}
+                      <br />
+                      {tour.price}
+                    </h4>
+                  </div>
+                </div>
+              </Link>
+            </swiper-slide>
+          ))}
+        </swiper-container>
       </div>
     </>
   )

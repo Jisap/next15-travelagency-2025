@@ -85,3 +85,9 @@
   background-color: #00000082;
   z-index:-1;
 }
+
+/* Swiper Customization */
+.recommendation-slider {
+  --swiper-navigation-size: 28px;
+  --swiper-theme-color: #193555; /* También puedes cambiar el color aquí */
+}
