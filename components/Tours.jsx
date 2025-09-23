@@ -26,7 +26,7 @@ const Tours = () => {
 
       <div className="travel-wrapper grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {ToursData.map((tour) => (
-          <Link href={`/TourDetails/${tour.id}`} key={tour.id}>
+          <Link href={`/ToursDetails/${tour.id}`} key={tour.id}>
             <div className="travel-item rounded-xl overflow-hidden relative group transition-all duration-300">
               <Image
                 src={tour.Images}
