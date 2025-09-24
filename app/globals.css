@@ -92,10 +92,6 @@
   --swiper-theme-color: #193555;
 }
 
-.recommendation-slider swiper-slide {
-  height: 100%;
-}
-
 /* Posicionar la paginación de forma absoluta para que no afecte el layout */
 .recommendation-slider .swiper-pagination {
   position: absolute !important;
@@ -180,3 +176,73 @@
 }
 
 /* Contact Banner */
+
+/* Asegura que no “asome” el siguiente/previo slide */
+swiper-container.blog-slider::part(container) {
+  overflow: hidden;
+  padding: 0;
+}
+
+/* Botones externos */
+.blog-prev,
+.blog-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  background: white;
+  border-radius: 9999px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .15);
+  z-index: 10;
+}
+
+/* coloca fuera del carrusel sin tocar su padding */
+.blog-prev {
+  left: -24px;
+}
+
+.blog-next {
+  right: -24px;
+}
+
+/* Iconos con pseudo-elementos (simple caret) */
+.blog-prev::before,
+.blog-next::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  margin: 0 auto;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+}
+
+.blog-prev::before {
+  border-right: 10px solid #193555;
+}
+
+.blog-next::before {
+  border-left: 10px solid #193555;
+}
+
+/* Ajustes por breakpoint si necesitas más separación */
+@media (min-width: 768px) {
+  .blog-prev {
+    left: -32px;
+  }
+
+  .blog-next {
+    right: -32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .blog-prev {
+    left: -50px;
+  }
+
+  .blog-next {
+    right: -50px;
+  }
+}

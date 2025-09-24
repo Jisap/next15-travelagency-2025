@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { author01, author02, author03, author04 } from "@/public/Images";
 
@@ -40,9 +40,26 @@ const testimonialsData = [
 ];
 
 const TestimonialsComponent = () => {
-  // 2. Registra los Swiper elements cuando el componente se monte
+  const swiperElRef = useRef(null);
+
   useEffect(() => {
     register();
+
+    const swiperEl = swiperElRef.current;
+
+    // Configuración de Swiper
+    const swiperParams = {
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      },
+    };
+
+    Object.assign(swiperEl, swiperParams);
   }, []);
 
   return (
@@ -69,18 +86,13 @@ const TestimonialsComponent = () => {
 
       {/* ---- Swiper Slider ---- */}
       <swiper-container
+        ref={swiperElRef}
         slides-per-view="1"
         space-between="30"
         loop="true"
-        autoplay-delay="4000"
-        autoplay-disable-on-interaction="false"
-        breakpoints='{
-          "768": { "slidesPerView": 2 },
-          "1024": { "slidesPerView": 3 }
-        }'
       >
         {testimonialsData.map((testimonial) => (
-          <swiper-slide key={testimonial.id}>
+          <swiper-slide key={testimonial.id} class="h-full">
             {/* Card */}
             <div className="bg-gradient-to-br from-[#1e1e1e] to-[#111] border border-white/10 rounded-2xl p-8 sm:p-10 h-full flex flex-col justify-between shadow-lg hover:shadow-black/50 transition-all duration-500">
               <p className="text-[#ffffffb3] text-sm sm:text-base leading-relaxed italic">

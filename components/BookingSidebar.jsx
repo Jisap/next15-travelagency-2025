@@ -70,7 +70,7 @@ const BookingSidebar = ({ tour }) => {
             class="travel-wrapper recommendation-slider flex-grow"
           >
             {toursData.map((tour) => (
-              <swiper-slide key={tour.id}>
+              <swiper-slide key={tour.id} class="h-full">
                 <Link href={`/ToursDetails/${tour.id}`}>
                   <div className="travel-item rounded-xl overflow-hidden relative group transition-all duration-300 h-full">
                     <Image
