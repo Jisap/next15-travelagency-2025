@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Hero = () => {
+const HeroComponent = () => {
   return (
     <div className='hero h-screen min-h-screen flex justify-center items-center z-10'>
       <div className='hero-content realtive text-center'>
@@ -22,4 +22,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default HeroComponent

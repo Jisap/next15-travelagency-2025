@@ -8,7 +8,7 @@ import { useState } from "react"
 
 
 
-const Tours = () => {
+const ToursComponent = () => {
 
   const [selectedTour, setSelectedTour] = useState(null);  
 
@@ -66,4 +66,4 @@ const Tours = () => {
   )
 }
 
-export default Tours
+export default ToursComponent

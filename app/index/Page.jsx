@@ -1,13 +1,15 @@
 "use client"
 
-import Hero from "@/components/Hero"
-import Tours from "@/components/Tours"
+import AboutComponent from "@/components/AboutComponent"
+import HeroComponent from "@/components/HeroComponent"
+import ToursComponent from "@/components/ToursComponent"
 
 const Index = () => {
   return (
     <>
-      <Hero />
-      <Tours />
+      <HeroComponent />
+      <ToursComponent />
+      <AboutComponent />
     </>
   )
 }
