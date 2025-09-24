@@ -13,7 +13,7 @@ const blog = [
   { img: blogPage03, title: "Unforgettable Experience", desc: "Make memories that last forever with breathtaking destinations around the globe.", date: "Apr 10, 2025", category: "Lifestyle" },
   { img: blogPage01, title: "Secrets of the Kyoto Temples", desc: "A journey through the serene and historic temples of Kyoto, Japan.", date: "May 21, 2025", category: "Culture" },
   { img: blogPage02, title: "Exploring the Amalfi Coast", desc: "Coastal drives, delicious food, and stunning views in Italy's famous coastline.", date: "Jun 08, 2025", category: "Food & Travel" },
-  { img: blogPage03, title: "Hiking the Swiss Alps", desc: "An adventurer's guide to the most scenic hiking trails in Switzerland.", date: "Jul 15, 2025", category: "Adventure" },
+  { img: blogPage03, title: "Hiking the Swiss Alps", desc: "An adventurer's guide to the most scenic hiking trails in Switzerland, with breathtaking views and unforgettable experiences.", date: "Jul 15, 2025", category: "Adventure" },
 ];
 
 const BlogComponent = () => {
