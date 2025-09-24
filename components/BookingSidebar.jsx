@@ -66,7 +66,7 @@ const BookingSidebar = ({ tour }) => {
             space-between="20"
             slides-per-view="1"
             pagination-clickable="false"
-            navigation="true"
+            navigation="false"
             class="travel-wrapper recommendation-slider flex-grow"
           >
             {toursData.map((tour) => (
