@@ -44,10 +44,10 @@ const BookingSidebar = ({ tour }) => {
             </div>
           </form>
 
-          <button 
-            type="button" 
+          <button
+            type="button"
             className="btn text-white bg-[#193555] font-bold py-4 rounded-md cursor-pointer transition-colors duration-300 mt-5 w-full"
-            onClick={() => setShowForm(true)} 
+            onClick={() => setShowForm(true)}
           >
             <a href="#" className="text-sm xl:text-md uppercase transition-colors duration-300 tracking-wider">
               Book Now
@@ -67,7 +67,7 @@ const BookingSidebar = ({ tour }) => {
             slides-per-view="1"
             pagination-clickable="false"
             navigation="true"
-            class="travel-wrapper recommendation-slider flex-grow" 
+            class="travel-wrapper recommendation-slider flex-grow"
           >
             {toursData.map((tour) => (
               <swiper-slide key={tour.id}>
@@ -107,6 +107,109 @@ const BookingSidebar = ({ tour }) => {
           </swiper-container>
         </div>
       </div>
+
+      {showForm && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          {/* Overlay */}
+          <div
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 cursor-pointer"
+            onClick={() => setShowForm(false)}
+          ></div>
+
+          <FontAwesomeIcon icon={faClose} onClick={() => setShowForm(false)} className="absolute top-3 right-3 text-white cursor-pointer" />
+
+          <div className="bg-white w-full max-w-[60vw] h-auto max-h-[90vh] overflow-y-auto z-10 relative rounded-2xl p-5 flex flex-col">
+            <h2 className="text-center unbounded-font pt-5 text-2xl lg:text-4xl font-semibold">
+              Booking Details
+            </h2>
+
+            <form method="post" className="p-5 lg:p-10">
+              {/* Name Fields */}
+              <div className="w-full gap-3 flex flex-col lg:flex-row">
+                <div className="flex flex-col w-full">
+                  <label className="pb-1 text-md font-bold">First Name:</label>
+                  <input type="text" placeholder="First Name" className="border-2 border-gray-100 outline-0 rounded-md p-2" required />
+                </div>
+                <div className="flex flex-col w-full">
+                  <label className="pb-1 text-md font-bold">Last Name:</label>
+                  <input type="text" placeholder="Last Name" className="border-2 border-gray-100 outline-0 rounded-md p-2" required />
+                </div>
+              </div>
+
+              {/* Email and Phone Row */}
+              <div className="w-full gap-3 flex flex-col lg:flex-row mt-4">
+                <div className="flex flex-col w-full">
+                  <label className="pb-1 text-md font-bold">Email:</label>
+                  <input type="email" placeholder="email@example.com" className="border-2 border-gray-100 outline-0 rounded-md p-2" required />
+                </div>
+                <div className="flex flex-col w-full">
+                  <label className="pb-1 text-md font-bold">Phone:</label>
+                  <input type="tel" placeholder="Phone Number" className="border-2 border-gray-100 outline-0 rounded-md p-2" required />
+                </div>
+              </div>
+
+              {/* How many people */}
+              <div className="w-full flex flex-col mt-4">
+                <label className="pb-1 text-md font-bold">How many people are in your group?</label>
+                <input type="number" placeholder="Number of people" min="1" className="border-2 border-gray-100 outline-0 rounded-md p-2" required />
+              </div>
+
+              {/* Best way to contact you */}
+              <div className="w-full flex flex-col mt-4">
+                <label className="pb-1 text-md font-bold">Best way to contact you?</label>
+                <div className="pl-3">
+                  <div className="flex flex-col gap-4 mt-2">
+                    <label className="flex items-center gap-1">
+                      <input type="radio" name="contact_method" value="phone" className="form-radio" /> Phone
+                    </label>
+                    <label className="flex items-center gap-1">
+                      <input type="radio" name="contact_method" value="email" className="form-radio" /> Email
+                    </label>
+                    <label className="flex items-center gap-1">
+                      <input type="radio" name="contact_method" value="either" className="form-radio" /> Either
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              {/* Best time to contact you */}
+              <div className="w-full flex flex-col mt-4">
+                <label className="pb-1 text-md font-bold">Best time to contact you</label>
+                <div className="pl-3">
+                  <div className="flex flex-col gap-4 mt-2">
+                    <label className="flex items-center gap-1">
+                      <input type="radio" name="contact_time" value="morning" className="form-radio" /> Morning
+                    </label>
+                    <label className="flex items-center gap-1">
+                      <input type="radio" name="contact_time" value="afternoon" /> Afternoon
+                    </label>
+                    <label className="flex items-center gap-1">
+                      <input type="radio" name="contact_time" value="evening" className="form-radio" /> Evening
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              {/* Textareas */}
+              <div className="w-full flex flex-col mt-4">
+                <label className="pb-1 text-md font-bold">Anything else we should know?</label>
+                <textarea placeholder="Your message..." rows="3" className="border-2 border-gray-100 outline-0 rounded-md p-2"></textarea>
+              </div>
+
+              <div className="w-full flex flex-col mt-4">
+                <label className="pb-1 text-md font-bold">How did you hear about us?</label>
+                <textarea placeholder="How did you hear about us?" rows="3" className="border-2 border-gray-100 outline-0 rounded-md p-2"></textarea>
+              </div>
+
+              <button type="submit" className="btn text-white bg-[#193555] font-bold py-3 rounded-md cursor-pointer transition-colors duration-300 mt-5 w-full">
+                <span className="text-sm xl:text-md uppercase transition-colors duration-300 tracking-wider">
+                  Submit Booking
+                </span>
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </>
   )
 }
