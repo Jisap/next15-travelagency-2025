@@ -27,9 +27,6 @@ const BlogComponent = () => {
  
     const swiperEl = swiperElRef.current;                       // Obtenemos la instancia del elemento Swiper una vez que el componente se ha montado.
 
-    
-    
-    
     const swiperParams = {                                      
       navigation: {                                             // Definimos las referencias a los botones de navegación                                           
         prevEl: prevRef.current,                                
@@ -40,8 +37,6 @@ const BlogComponent = () => {
         1024: { slidesPerView: 3 },                             // especialmente al navegar entre páginas en Next.js.
       },
     };
-    
-    
     
     Object.assign(swiperEl, swiperParams);                      // Usamos `Object.assign` para 'inyectar' los parámetros de configuración directamente en el elemento del carrusel.
     swiperEl.initialize?.();                                    // Es una forma robusta de aplicar la configuración después de que el componente se haya montado.
@@ -72,7 +67,6 @@ const BlogComponent = () => {
           init="false"
           slides-per-view="1"
           space-between="30"
-          loop="true"
         >
           {blog.map((blog, i) => (
             <swiper-slide key={i} class="h-full">

@@ -60,6 +60,7 @@ const TestimonialsComponent = () => {
     };
 
     Object.assign(swiperEl, swiperParams);
+    swiperEl.initialize?.();
   }, []);
 
   return (
@@ -70,15 +71,17 @@ const TestimonialsComponent = () => {
         </h2>
 
         <div className="xl:w-[50%] w-full">
-          <p className="text-[#ffffff91] pb-5 text-sm">
+          <p className="text-[#ffffff91] pb-5 pt-2 text-sm">
             Our curated travel experiences are designed to inspire and delight. But don't just take our word for it see what our happy travelers have to say.
           </p>
 
-          <button className="btn bg-white group text-[#192555] hover:bg-[#192555] hover:text-white font-bold px-6 py-4 rounded-full cursor-pointer transition-colors duration-300">
-            <a href="#" className="text-sm xl:text-md uppercase transition-colors duration-300 tracking-wider">
-              Learn More 
-            </a>
-          </button>
+          <div className="flex justify-end">
+            <button className="btn bg-white group text-[#192555] hover:bg-[#192555] hover:text-white font-bold px-6 py-4 rounded-full cursor-pointer transition-colors duration-300">
+              <a href="#" className="text-sm xl:text-md uppercase transition-colors duration-300 tracking-wider">
+                Learn More 
+              </a>
+            </button>
+          </div>
         </div>
       </div>
      
@@ -88,6 +91,7 @@ const TestimonialsComponent = () => {
       <swiper-container
         ref={swiperElRef}
         slides-per-view="1"
+        init="false"
         space-between="30"
         loop="true"
       >
