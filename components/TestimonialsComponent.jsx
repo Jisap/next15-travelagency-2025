@@ -70,13 +70,13 @@ const TestimonialsComponent = () => {
           Discover A Mesmerizing Nature Landscape & Stunning Culture
         </h2>
 
-        <div className="xl:w-[50%] w-full">
-          <p className="text-[#ffffff91] pb-5 pt-2 text-sm">
+        <div className="xl:w-[50%] w-full hidden md:flex flex-col gap-5">
+          <p className="text-[#ffffff91] pt-2 text-sm">
             Our curated travel experiences are designed to inspire and delight. But don't just take our word for it see what our happy travelers have to say.
           </p>
 
-          <div className="flex justify-end">
-            <button className="btn bg-white group text-[#192555] hover:bg-[#192555] hover:text-white font-bold px-6 py-4 rounded-full cursor-pointer transition-colors duration-300">
+          <div className="self-end">
+            <button className="btn bg-white group text-[#192555] hover:bg-[#192555] hover:text-white font-bold px-6 py-3 rounded-full cursor-pointer transition-colors duration-300">
               <a href="#" className="text-sm xl:text-md uppercase transition-colors duration-300 tracking-wider">
                 Learn More 
               </a>

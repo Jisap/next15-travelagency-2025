@@ -13,11 +13,11 @@ const ExperienceComponent = () => {
             Our curated travel experiences are designed to inspire and delight. But don't just take our word for it see what our happy travelers have to say
           </p>
           
-          <button className='btn bg-white group text-[#193555] hover:bg-[#193555]font-bold px-6 w-auto'>
-            <a href="#" className='unbounded-font text-sm xl:text-md uppercase group-hover:text-white'>
+          <div className="flex justify-end">
+            <button className="bg-white text-[#193555] hover:bg-[#193555] hover:text-white px-8 py-3 rounded-full text-sm font-semibold uppercase transition duration-300 shadow-md hover:shadow-lg">
               Learn More
-            </a>
-          </button>
+            </button>
+          </div>
         </div>
       </div>
     </div>
