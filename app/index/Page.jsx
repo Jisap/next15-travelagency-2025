@@ -2,6 +2,7 @@
 
 import AboutComponent from "@/components/AboutComponent"
 import BlogComponent from "@/components/BlogComponent"
+import ContactBannerComponent from "@/components/ContactBannerComponent"
 import ExperienceComponent from "@/components/ExperienceComponent"
 import HeroComponent from "@/components/HeroComponent"
 import TestimonialsComponent from "@/components/TestimonialsComponent"
@@ -16,6 +17,7 @@ const Index = () => {
       <TestimonialsComponent />
       <BlogComponent />
       <ExperienceComponent />
+      <ContactBannerComponent />
     </>
   )
 }

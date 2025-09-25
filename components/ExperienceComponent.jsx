@@ -35,7 +35,9 @@ const FaqItem = ({ faq, isOpen, toggle }) => {
       </button>
       <div style={{ maxHeight: `${height}px` }} className='transition-all duration-500 ease-in-out overflow-hidden'>
         <div ref={contentRef}>
-          <p className='text-gray-400 px-2 pb-4'>{faq.answer}</p>
+          <p className='text-gray-400 px-2 pb-4'>
+            {faq.answer}
+          </p>
         </div>
       </div>
     </div>
@@ -57,12 +59,12 @@ const ExperienceComponent = () => {
         </h2>
 
         <div className='xl:w-[40%] w-full'>
-          <p className='text-[#ffffff91] pb-5 text-sm'>
+          <p className='text-[#ffffff91] pt-2 pb-5 text-sm'>
             Our curated travel experiences are designed to inspire and delight. But don't just take our word for it see what our happy travelers have to say
           </p>
           
           <div className="flex justify-end">
-            <button className="bg-white text-[#193555] hover:bg-[#193555] hover:text-white px-8 py-3 rounded-full text-sm font-semibold uppercase transition duration-300 shadow-md hover:shadow-lg">
+            <button className="bg-white text-[#193555] hover:bg-[#193555] hover:text-white px-6 py-3 rounded-full text-sm font-semibold uppercase transition duration-300 shadow-md hover:shadow-lg">
               <a href="#" className="text-sm xl:text-md uppercase transition-colors duration-300 tracking-wider">
                 Learn More
               </a>
