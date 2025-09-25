@@ -8,3 +8,4 @@ export { default as blogPage06 } from './Blog-Page-06.webp';
 export { default as heroImage } from './hero-image.jpg';
 export { default as sectionBanner } from './section-banner.jpg';
 export { default as user } from './user.png';
+
