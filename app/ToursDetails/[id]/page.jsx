@@ -18,7 +18,7 @@ const page = async({ params }) => {
     <>
       <div className="section-banner px-[2%] sm:px-[8%] lg:px-[12%] py-[50px] lg:py-[90px] min-h-[450px] lg:min-h-[500px] z-20 relative">
         <h2 className="text-4xl font-normal text-white text-center w-full unbounded-font z-22">
-          Wildness of Paris
+          {tour.title}
         </h2>
 
         <ul className="text-white z-10 flex items-center gap-8 section-list">
