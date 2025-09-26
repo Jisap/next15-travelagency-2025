@@ -3,6 +3,7 @@
 import { blogPage01, blogPage02, blogPage03 } from "@/assets";
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 // 1. Importa `register` para inicializar Swiper Elements
 import { register } from "swiper/element/bundle";
@@ -44,7 +45,13 @@ const BlogComponent = () => {
   
   return (
     <div className='blog px-[2%] sm:px-[8%] lg:px-[12%] py-[50px] lg:py-[90px]'>
-      <div className='w-full pb-5'>
+      <motion.div 
+        className='w-full pb-5'
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.5 }} // Aumentamos a 50% para que se vea mejor
+        transition={{ duration: 1, ease: 'easeOut' }} // Aumentamos la duración
+      >
         <h1 className='unbounded-font text-4xl font-semibold pb-5'>
           our Latest Blog Post
         </h1>
@@ -52,9 +59,15 @@ const BlogComponent = () => {
         <p className='text-[#193555] pb-5'>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quia. Doloremque, voluptas, doloremque, quos, dolores, consequatur, ipsa, autem, voluptate, asperiores, fugiat, laborum, eaque.
         </p>
-      </div>
+      </motion.div>
 
-      <div className="relative">
+      <motion.div 
+        className="relative"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }} // Aumentamos a 40%
+        transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }} // Aumentamos duración y delay
+      >
 
         {/* Flechas externas */}
         <button ref={prevRef} aria-label="Prev" className="blog-prev" />
@@ -113,7 +126,7 @@ const BlogComponent = () => {
             </swiper-slide>
           ))}
         </swiper-container>
-      </div>
+      </motion.div>
     </div>
   )
 }

@@ -28,7 +28,7 @@ const HeroComponent = () => {
       y: 50,
       duration: 1,
       ease: 'power3.out',
-      stagger: 0.2,
+      stagger: 0.6,
     });
   }, { scope: heroRef }); // 4. Usamos el ref como el "scope" para que GSAP busque los selectores dentro de este contenedor
 

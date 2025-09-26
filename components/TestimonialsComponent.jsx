@@ -70,8 +70,8 @@ const TestimonialsComponent = () => {
         className="pb-10 testimonials-content flex justify-between lg:flex-row gap-3 lg:gap-0 items-start w-full"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
+        viewport={{ once: false, amount: 0.5 }} // Aumentamos a 50% para que se vea mejor
+        transition={{ duration: 1, ease: 'easeOut' }} // Aumentamos la duración
       >
         <h2 className="xl:w-[50%] w-full text-white text-4xl leading-tight unbounded-font">
           Discover A Mesmerizing Nature Landscape & Stunning Culture
@@ -98,8 +98,8 @@ const TestimonialsComponent = () => {
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+        viewport={{ once: true, amount: 0.4 }} // Aumentamos a 40%
+        transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }} // Aumentamos duración y delay
       >
         <swiper-container
           ref={swiperElRef}
