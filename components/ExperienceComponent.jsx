@@ -1,6 +1,7 @@
 "use client"
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { motion } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
 
 const faqData = [
@@ -13,7 +14,7 @@ const faqData = [
 ]
 
 // 1. Se crea un componente `FaqItem` para encapsular la lógica de cada elemento del acordeón.
-const FaqItem = ({ faq, isOpen, toggle }) => {
+const FaqItem = ({ faq, isOpen, toggle, variants }) => {
   const contentRef = useRef(null);
   const [height, setHeight] = useState(0);
 
@@ -28,7 +29,7 @@ const FaqItem = ({ faq, isOpen, toggle }) => {
   }, [isOpen]);
 
   return (
-    <div className='border-b border-gray-700'>
+    <motion.div variants={variants} className='border-b border-gray-700'>
       <button onClick={toggle} className='w-full cursor-pointer text-left flex justify-between items-center py-4 font-semibold text-white'>
         <span>{faq.question}</span>
         <FontAwesomeIcon icon={isOpen ? faAngleUp : faAngleDown} className='ml-2' />
@@ -40,7 +41,7 @@ const FaqItem = ({ faq, isOpen, toggle }) => {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -51,42 +52,74 @@ const ExperienceComponent = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  // Variantes para el contenedor del acordeón
+  const accordionContainerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  // Variantes para cada item del acordeón
+  const accordionItemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+  };
+
   return (
     <div className='experience px-[2%] sm:px-[8%] lg:px-[12%] py-[50px] lg:py-[90px] bg-[#0e0700]'> 
       <div className='experience-content flex justify-between lg:flex-row flex-col gap-3 lg:gap-0 items-start w-full'>
-        <h2 className='xl:w-[50%] w-full text-white text-2xl md:text-5xl leading-tight unbounded-font'>
+        <motion.h2 
+          className='xl:w-[50%] w-full text-white text-2xl md:text-5xl leading-tight unbounded-font'
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+        >
           Enjoy Our best Quality Tour & Experience
-        </h2>
+        </motion.h2>
 
-        <div className='xl:w-[40%] w-full'>
+        <motion.div 
+          className='xl:w-[40%] w-full'
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
+        >
           <p className='text-[#ffffff91] pt-2 pb-5 text-sm'>
-            Our curated travel experiences are designed to inspire and delight. But don't just take our word for it see what our happy travelers have to say
+            Our curated travel experiences are designed to inspire and delight. But don't just take our word for it see what our happy travelers have to say.
           </p>
           
           <div className="flex justify-end">
             <button className="bg-white text-[#193555] hover:bg-[#193555] hover:text-white px-6 py-3 rounded-full text-sm font-semibold uppercase transition duration-300 shadow-md hover:shadow-lg">
-              <a href="#" className="text-sm xl:text-md uppercase transition-colors duration-300 tracking-wider">
-                Learn More
-              </a>
+              Learn More
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
 
-      <div className='grid grid-cols-1 gap-8 mt-10 mx-auto w-[100%] lg:mx-auto lg:w-[80%]'>
+      <motion.div 
+        className='grid grid-cols-1 gap-8 mt-10 mx-auto w-[100%] lg:mx-auto lg:w-[80%]'
+        variants={accordionContainerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         {faqData.map((faq, index) => {
-          // 3. Se renderiza el nuevo componente `FaqItem` en el bucle,
-          //    pasándole las props necesarias.
           return (
             <FaqItem
               key={index}
               faq={faq}
               isOpen={openIndex === index}
               toggle={() => toggle(index)}
+              variants={accordionItemVariants}
             />
           );
         })}
-      </div>
+      </motion.div>
     </div>
   )
 }
