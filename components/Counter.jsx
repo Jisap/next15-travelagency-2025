@@ -5,9 +5,9 @@ import { useInView, animate } from "framer-motion";
 
 /**
  * Componente que anima un número desde un valor inicial hasta un valor final.
- * @param {object} props - Propiedades del componente.
- * @param {number} props.from - El número inicial de la animación.
- * @param {number} props.to - El número final de la animación.
+ * @param {object} props                - Propiedades del componente.
+ * @param {number} props.from           - El número inicial de la animación.
+ * @param {number} props.to             - El número final de la animación.
  * @param {number} [props.duration=1.5] - La duración de la animación en segundos.
  */
 const Counter = ({ from = 0, to, duration = 2 }) => {
