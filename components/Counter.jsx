@@ -12,7 +12,7 @@ import { useInView, animate } from "framer-motion";
  */
 const Counter = ({ from = 0, to, duration = 2 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true }); // Anima solo una vez cuando es visible
+  const isInView = useInView(ref, { once: false }); // Anima cada vez que es visible
 
   useEffect(() => {
     if (isInView && ref.current) {
