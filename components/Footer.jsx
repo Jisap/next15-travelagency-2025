@@ -1,14 +1,38 @@
-import React from 'react'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faFacebook, faInstagram, faXTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons'
+"use client";
+import React from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faInstagram, faXTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
+
+  // Variantes para el contenedor principal para orquestar la animación de las columnas
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.2, // Retraso entre cada columna
+      }
+    }
+  };
+
+  // Variantes para cada columna
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } }
+  };
+
   return (
-    <>
-      <div className='footer bg-black px-[2%] sm:px-[8%] pt-[50px] lg:pt-[90px]'>
-        <div className='footer-content'>
-          <div className='grid grid-cols-1 lg:grid-cols-12 gap-10'>
-            <div className='lg:col-span-3'>
+    <div className='footer bg-black px-[2%] sm:px-[8%] pt-[50px] lg:pt-[90px] overflow-hidden'>
+      <div className='footer-content'>
+        <motion.div 
+          className='grid grid-cols-1 lg:grid-cols-12 gap-10'
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.2 }}
+        >
+          <motion.div variants={itemVariants} className='lg:col-span-3'>
               <div className='text-white logo text-wxl uppercase font-semibold'>
                 <a href="#" className='unbounded-font'>
                   Sky<span className='unbounded-font'>Fare</span>
@@ -25,10 +49,10 @@ const Footer = () => {
                 <FontAwesomeIcon icon={faFacebook} className="w-5 h-5 text-gray-400 hover:text-blue-500 transition duration-300 cursor-pointer" />
                 <FontAwesomeIcon icon={faYoutube} className="w-5 h-5 text-gray-400 hover:text-red-500 transition duration-300 cursor-pointer" />
               </div>
-            </div>
+          </motion.div>
 
-            <div className='lg:col-span-9 grid grid-cols-1 md:grid-cols-12 gap-10'>
-              <div className='md:col-span-3 space-y-3'>
+          <div className='lg:col-span-9 grid grid-cols-1 md:grid-cols-12 gap-10'>
+            <motion.div variants={itemVariants} className='md:col-span-3 space-y-3'>
                 <h2 className='text-white text-2xl unbounded-font mb-6'>
                   Pages
                 </h2>
@@ -55,9 +79,9 @@ const Footer = () => {
                     </a>
                   </li>
                 </ul>
-              </div>
+            </motion.div>
 
-              <div className='md:col-span-3 space-y-3'>
+            <motion.div variants={itemVariants} className='md:col-span-3 space-y-3'>
                 <h2 className='text-white text-2xl unbounded-font mb-6'>
                   Links
                 </h2>
@@ -84,9 +108,9 @@ const Footer = () => {
                     </a>
                   </li>
                 </ul>
-              </div>
+            </motion.div>
 
-              <div className='md:col-span-6 space-y-3 max-w-md'>
+            <motion.div variants={itemVariants} className='md:col-span-6 space-y-3 max-w-md'>
                 <h2 className='text-white text-2xl unbounded-font mb-6'>
                   Our Newletter
                 </h2>
@@ -106,19 +130,23 @@ const Footer = () => {
                     Sign Up
                   </button>
                 </form>
-              </div>
-            </div>
-          </div>  
-        </div>
-
-        <div className="border-t border-[#ffffff33] mt-12 py-8 text-center text-gray-500 text-sm">
-          <p>
-            © 2025. All Rights Reserved by <a href="#" className="font-bold text-white hover:text-red-400">jisapdev</a>
-          </p>
-        </div>
-
+            </motion.div>
+          </div>
+        </motion.div>  
       </div>
-    </>  
+
+      <motion.div 
+        className="border-t border-[#ffffff33] mt-12 py-8 text-center text-gray-500 text-sm"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}
+      >
+        <p>
+          © 2025. All Rights Reserved by <a href="#" className="font-bold text-white hover:text-red-400">jisapdev</a>
+        </p>
+      </motion.div>
+    </div>
   )
 }
 
