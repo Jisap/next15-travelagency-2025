@@ -103,8 +103,8 @@ const Nav = () => {
               </Link>
             </li>
             <li>
-              <Link href="/Tour" className="active font-[500] text-[#697e8a] hover:text-black transition-colors duration-500">
-                Tour
+              <Link href="/Tours" className="active font-[500] text-[#697e8a] hover:text-black transition-colors duration-500">
+                Tours
               </Link>
             </li>
             <div className="logo text-3xl uppercase font-semibold">

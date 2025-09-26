@@ -88,13 +88,14 @@ const page = () => {
 
   return (
     <>
+      {/* Page Title */}
       <motion.div
         className="section-banner px-[2%] sm:px-[8%] lg:px-[12%] py-[50px] lg:py-[90px] min-h-[450px] lg:min-h-[500px] z-20 relative"
         variants={bannerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.h2 variants={titleVariants} className="text-4xl font-normal text-white text-center w-full unbounded-font z-22">
+        <motion.h2 variants={titleVariants} className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-normal text-white text-center w-full unbounded-font z-22">
           About Us
         </motion.h2>
 
