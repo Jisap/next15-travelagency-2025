@@ -1,24 +1,39 @@
 'use client';
-import React from 'react';
+import React, { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// 1. Registramos el plugin ScrollTrigger para poder usarlo
+gsap.registerPlugin(ScrollTrigger);
 
 const HeroComponent = () => {
+  // 2. Creamos una referencia para el contenedor principal del Hero
+  const heroRef = useRef(null);
 
   useGSAP(() => {
-    // Animar desde un estado inicial (opacity 0, desplazado en Y) a su estado final
+    // 3. La animación ahora está vinculada al ScrollTrigger
     gsap.from('.hero-content > *', {
+      // Configuración de ScrollTrigger
+      scrollTrigger: {
+        trigger: heroRef.current, // El elemento que dispara la animación
+        start: 'top 80%',         // La animación empieza cuando el 80% superior del elemento es visible
+        toggleActions: 'restart none restart reset' // Controla cómo se comporta la animación:
+                                                 // onEnter: restart (reinicia la animación)
+                                                 // onLeave: none (no hace nada)
+                                                 // onEnterBack: restart (reinicia al volver desde arriba)
+                                                 // onLeaveBack: reset (resetea la animación al salir por arriba)
+      },
       opacity: 0,
       y: 50,
       duration: 1,
       ease: 'power3.out',
-      stagger: 0.2, // Añade un pequeño retraso entre la animación de cada elemento
-      delay: 0.5    // Un pequeño retardo inicial para que la animación no sea tan brusca al cargar
+      stagger: 0.2,
     });
-  });
+  }, { scope: heroRef }); // 4. Usamos el ref como el "scope" para que GSAP busque los selectores dentro de este contenedor
 
   return (
-    <div className='hero min-h-screen flex justify-center items-center z-10'>
+    <div ref={heroRef} className='hero min-h-screen flex justify-center items-center z-10'>
       <div className='hero-content relative text-center'>
         <h1 className='xl:text-8xl lg:text-7xl md:text-6xl text-4xl unbounded-font font-bold text-white'>
           Find Your Best <br /> Travels Package
