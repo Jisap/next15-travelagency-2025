@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { author01, author02, author03, author04 } from "@/public/Images";
 
+import { motion } from "framer-motion";
 // 1. Importa `register` para inicializar Swiper Elements
 import { register } from "swiper/element/bundle";
 
@@ -65,7 +66,13 @@ const TestimonialsComponent = () => {
 
   return (
     <div className="testimonial bg-[#0e0700] px-[2%] sm:px-[8%] lg:px-[12%] py-[50px] lg:py-[90px] ">
-      <div className="pb-10 testimonials-content flex justify-between lg:flex-row gap-3 lg:gap-0 items-start w-full">
+      <motion.div 
+        className="pb-10 testimonials-content flex justify-between lg:flex-row gap-3 lg:gap-0 items-start w-full"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
         <h2 className="xl:w-[50%] w-full text-white text-4xl leading-tight unbounded-font">
           Discover A Mesmerizing Nature Landscape & Stunning Culture
         </h2>
@@ -83,47 +90,54 @@ const TestimonialsComponent = () => {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
      
       
 
       {/* ---- Swiper Slider ---- */}
-      <swiper-container
-        ref={swiperElRef}
-        slides-per-view="1"
-        init="false"
-        space-between="30"
-        loop="true"
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
       >
-        {testimonialsData.map((testimonial) => (
-          <swiper-slide key={testimonial.id} class="h-full">
-            {/* Card */}
-            <div className="bg-gradient-to-br from-[#1e1e1e] to-[#111] border border-white/10 rounded-2xl p-8 sm:p-10 h-full flex flex-col justify-between shadow-lg hover:shadow-black/50 transition-all duration-500">
-              <p className="text-[#ffffffb3] text-sm sm:text-base leading-relaxed italic">
-                "{testimonial.quote}"
-              </p>
-              {/* User Info */}
-              <div className="flex items-center gap-4 mt-8">
-                <Image
-                  src={testimonial.image}
-                  width={55}
-                  height={55}
-                  className="rounded-full border-2 border-white/20"
-                  alt={testimonial.name}
-                />
-                <div>
-                  <h4 className="text-white font-semibold text-sm sm:text-base">
-                    {testimonial.name}
-                  </h4>
-                  <p className="text-[#ffffff91] text-xs sm:text-sm">
-                    {testimonial.title}
-                  </p>
+        <swiper-container
+          ref={swiperElRef}
+          slides-per-view="1"
+          init="false"
+          space-between="30"
+          loop="true"
+        >
+          {testimonialsData.map((testimonial) => (
+            <swiper-slide key={testimonial.id} class="h-full">
+              {/* Card */}
+              <div className="bg-gradient-to-br from-[#1e1e1e] to-[#111] border border-white/10 rounded-2xl p-8 sm:p-10 h-full flex flex-col justify-between shadow-lg hover:shadow-black/50 transition-all duration-500">
+                <p className="text-[#ffffffb3] text-sm sm:text-base leading-relaxed italic">
+                  "{testimonial.quote}"
+                </p>
+                {/* User Info */}
+                <div className="flex items-center gap-4 mt-8">
+                  <Image
+                    src={testimonial.image}
+                    width={55}
+                    height={55}
+                    className="rounded-full border-2 border-white/20"
+                    alt={testimonial.name}
+                  />
+                  <div>
+                    <h4 className="text-white font-semibold text-sm sm:text-base">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-[#ffffff91] text-xs sm:text-sm">
+                      {testimonial.title}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </swiper-slide>
-        ))}
-      </swiper-container>
+            </swiper-slide>
+          ))}
+        </swiper-container>
+      </motion.div>
     </div>
   );
 };

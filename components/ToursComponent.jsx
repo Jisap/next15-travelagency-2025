@@ -50,7 +50,7 @@ const ToursComponent = () => {
         className="travel-content text-center"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
         <h1 className="unbounded-font text-4xl font-semibold pb-3">
