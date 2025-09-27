@@ -20,7 +20,7 @@ const BookingSidebar = ({ tour }) => {
   return (
     <>
       {/* 1. Se quita `h-fit` para que el contenedor pueda estirarse y ocupar toda la altura */}
-      <div className="xl:w-[30%] lg:w-[40%] w-full sticky top-5 border-2 border-gray-100 rounded-md py-5 px-3 flex flex-col">
+      <div className="w-full h-full sticky top-5 border-2 border-gray-100 rounded-md py-5 px-3 flex flex-col">
         <div className="flex-shrink-0"> {/* Este div no crecerá, manteniendo su tamaño */}
           <h4 className="text-lg font-semibold pb-1">
             Date :
@@ -68,6 +68,7 @@ const BookingSidebar = ({ tour }) => {
             pagination-clickable="false"
             navigation="false"
             class="travel-wrapper recommendation-slider flex-grow"
+            style={{ height: '400px' }} // Añadimos una altura fija para el carrusel
           >
             {toursData.map((tour) => (
               <swiper-slide key={tour.id} class="h-full">
