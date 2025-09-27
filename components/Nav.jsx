@@ -159,32 +159,32 @@ const Nav = () => {
             ${isOpen ? "max-h-[500px] top-full mt-3 opacity-100" : "max-h-0 opacity-0 py-0 top-full"}
           `}>
             <li className="group w-full hover:bg-gray-200 transition-colors duration-200">
-              <a href="#" className="block w-full px-6 py-4 font-[500] text-[#697e8a] transition-colors duration-200 group-hover:text-black">
+              <a href="/" className="block w-full px-6 py-4 font-[500] text-[#697e8a] transition-colors duration-200 group-hover:text-black">
                 Home
               </a>
             </li>
             <li className="group w-full hover:bg-gray-200 transition-colors duration-200">
-              <a href="#" className="block w-full px-6 py-4 font-[500] text-[#697e8a] transition-colors duration-200 group-hover:text-black">
+              <a href="/About" className="block w-full px-6 py-4 font-[500] text-[#697e8a] transition-colors duration-200 group-hover:text-black">
                 About
               </a>
             </li>
             <li className="group w-full hover:bg-gray-200 transition-colors duration-200">
-              <a href="#" className="block w-full px-6 py-4 font-[500] text-[#697e8a] transition-colors duration-200 group-hover:text-black">
-                Home
+              <a href="/Blog" className="block w-full px-6 py-4 font-[500] text-[#697e8a] transition-colors duration-200 group-hover:text-black">
+                Blog
               </a>
             </li>
             <li className="group w-full hover:bg-gray-200 transition-colors duration-200">
-              <a href="#" className="block w-full px-6 py-4 font-[500] text-[#697e8a] transition-colors duration-200 group-hover:text-black">
+              <a href="/Tours" className="block w-full px-6 py-4 font-[500] text-[#697e8a] transition-colors duration-200 group-hover:text-black">
                 Tours
               </a>
             </li>
             <li className="group w-full hover:bg-gray-200 transition-colors duration-200">
-              <a href="#" className="block w-full px-6 py-4 font-[500] text-[#697e8a] transition-colors duration-200 group-hover:text-black">
+              <a href="/Faq" className="block w-full px-6 py-4 font-[500] text-[#697e8a] transition-colors duration-200 group-hover:text-black">
                 Faqs
               </a>
             </li>
             <li className="group w-full hover:bg-gray-200 transition-colors duration-200">
-              <a href="#" className="block w-full px-6 py-4 font-[500] text-[#697e8a] transition-colors duration-200 group-hover:text-black">
+              <a href="/Contact" className="block w-full px-6 py-4 font-[500] text-[#697e8a] transition-colors duration-200 group-hover:text-black">
                 Contact
               </a>
             </li>
