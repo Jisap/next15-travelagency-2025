@@ -55,7 +55,7 @@ const ContactBannerComponent = () => {
       <AnimatePresence>
         {showModal && (
           <motion.div
-            className="fixed inset-0 flex items-center justify-center z-50"
+            className="fixed inset-0 flex items-start sm:items-center justify-center z-50 p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -73,21 +73,21 @@ const ContactBannerComponent = () => {
             />
 
             <motion.div
-              className="bg-white w-full max-w-lg h-auto max-h-[90vh] overflow-y-auto z-10 relative rounded-2xl p-5 flex flex-col shadow-2xl"
+              className="bg-white w-11/12 max-w-lg h-auto max-h-[90vh] overflow-y-auto z-10 relative rounded-2xl p-6 sm:p-8 flex flex-col shadow-2xl"
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20, opacity: 0 }}
               transition={{ duration: 0.3, ease: 'easeOut' }}
               onClick={(e) => e.stopPropagation()} // Evita que el clic dentro del modal lo cierre
             >
-              <h2 className="text-center unbounded-font pt-5 text-2xl lg:text-3xl font-semibold text-[var(--heading-color)]">
+              <h2 className="text-center unbounded-font text-xl sm:text-2xl lg:text-3xl font-semibold text-[var(--heading-color)]">
                 Contact Us
               </h2>
               <p className="text-center text-[var(--text-color)] mt-2 mb-6">
                 Leave your details and we'll get back to you shortly.
               </p>
 
-              <form method="post" className="p-5 lg:p-8 space-y-5">
+              <form method="post" className="space-y-5">
                 {/* Name Field */}
                 <div className="flex flex-col">
                   <label htmlFor="name" className="pb-1 text-md font-bold text-[var(--heading-color)]">Full Name:</label>
