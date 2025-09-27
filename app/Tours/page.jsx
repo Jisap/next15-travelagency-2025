@@ -6,6 +6,7 @@ import Link from 'next/link';
 import React from 'react'
 import { motion } from "framer-motion"
 import toursData from "../../data/ToursData.json"
+import ToursComponent from '@/components/ToursComponent';
 
 
 // Variantes de animación para el banner
@@ -63,6 +64,8 @@ const page = () => {
           </li>
         </motion.ul>
       </motion.div>
+
+      <ToursComponent />
     </>
   )
 }

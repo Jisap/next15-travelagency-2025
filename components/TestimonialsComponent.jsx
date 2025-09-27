@@ -40,7 +40,7 @@ const testimonialsData = [
   },
 ];
 
-const TestimonialsComponent = () => {
+const TestimonialsComponent = ({ theme = "dark" }) => {
   const swiperElRef = useRef(null);
 
   useEffect(() => {
@@ -65,7 +65,9 @@ const TestimonialsComponent = () => {
   }, []);
 
   return (
-    <div className="testimonial bg-[#0e0700] px-[2%] sm:px-[8%] lg:px-[12%] py-[50px] lg:py-[90px] ">
+    <div className={`testimonial px-[2%] sm:px-[8%] lg:px-[12%] py-[50px] lg:py-[90px] ${
+      theme === 'dark' ? 'bg-[#0e0700]' : 'bg-white'
+    }`}>
       <motion.div 
         className="pb-10 testimonials-content flex justify-between lg:flex-row gap-3 lg:gap-0 items-start w-full"
         initial={{ opacity: 0, y: 50 }}
@@ -73,17 +75,23 @@ const TestimonialsComponent = () => {
         viewport={{ once: false, amount: 0.5 }} // Aumentamos a 50% para que se vea mejor
         transition={{ duration: 1, ease: 'easeOut' }} // Aumentamos la duración
       >
-        <h2 className="xl:w-[50%] w-full text-white text-4xl leading-tight unbounded-font">
+        <h2 className={`xl:w-[50%] w-full text-4xl leading-tight unbounded-font ${
+          theme === 'dark' ? 'text-white' : 'text-[var(--heading-color)]'
+        }`}>
           Discover A Mesmerizing Nature Landscape & Stunning Culture
         </h2>
 
         <div className="xl:w-[50%] w-full hidden md:flex flex-col gap-5">
-          <p className="text-[#ffffff91] pt-2 text-sm">
+          <p className={`pt-2 text-sm ${
+            theme === 'dark' ? 'text-[#ffffff91]' : 'text-[var(--text-color)]'
+          }`}>
             Our curated travel experiences are designed to inspire and delight. But don't just take our word for it see what our happy travelers have to say.
           </p>
 
           <div className="self-end">
-            <button className="btn bg-white group text-[#192555] hover:bg-[#192555] hover:text-white font-bold px-6 py-3 rounded-full cursor-pointer transition-colors duration-300">
+            <button className={`btn group font-bold px-6 py-3 rounded-full cursor-pointer transition-colors duration-300 ${
+              theme === 'dark' ? 'bg-white text-[#192555] hover:bg-[#192555] hover:text-white' : 'bg-[#192555] text-white hover:bg-[#0e0700]'
+            }`}>
               <a href="#" className="text-sm xl:text-md uppercase transition-colors duration-300 tracking-wider">
                 Learn More 
               </a>
@@ -111,8 +119,14 @@ const TestimonialsComponent = () => {
           {testimonialsData.map((testimonial) => (
             <swiper-slide key={testimonial.id} class="h-full">
               {/* Card */}
-              <div className="bg-gradient-to-br from-[#1e1e1e] to-[#111] border border-white/10 rounded-2xl p-8 sm:p-10 h-full flex flex-col justify-between shadow-lg hover:shadow-black/50 transition-all duration-500">
-                <p className="text-[#ffffffb3] text-sm sm:text-base leading-relaxed italic">
+              <div className={`rounded-2xl p-8 sm:p-10 h-full flex flex-col justify-between shadow-lg transition-all duration-500 ${
+                theme === 'dark' 
+                  ? 'bg-gradient-to-br from-[#1e1e1e] to-[#111] border border-white/10 hover:shadow-black/50' 
+                  : 'bg-white border border-gray-200/80 shadow-gray-200/80 hover:shadow-xl'
+              }`}>
+                <p className={`text-sm sm:text-base leading-relaxed italic ${
+                  theme === 'dark' ? 'text-[#ffffffb3]' : 'text-[var(--text-color)]'
+                }`}>
                   "{testimonial.quote}"
                 </p>
                 {/* User Info */}
@@ -121,14 +135,18 @@ const TestimonialsComponent = () => {
                     src={testimonial.image}
                     width={55}
                     height={55}
-                    className="rounded-full border-2 border-white/20"
+                    className={`rounded-full border-2 ${
+                      theme === 'dark' ? 'border-white/20' : 'border-gray-200'
+                    }`}
                     alt={testimonial.name}
                   />
                   <div>
-                    <h4 className="text-white font-semibold text-sm sm:text-base">
+                    <h4 className={`font-semibold text-sm sm:text-base ${
+                      theme === 'dark' ? 'text-white' : 'text-[var(--heading-color)]'
+                    }`}>
                       {testimonial.name}
                     </h4>
-                    <p className="text-[#ffffff91] text-xs sm:text-sm">
+                    <p className={`text-xs sm:text-sm ${theme === 'dark' ? 'text-[#ffffff91]' : 'text-gray-500'}`}>
                       {testimonial.title}
                     </p>
                   </div>

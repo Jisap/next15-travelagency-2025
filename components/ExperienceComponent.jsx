@@ -14,7 +14,7 @@ const faqData = [
 ]
 
 // 1. Se crea un componente `FaqItem` para encapsular la lógica de cada elemento del acordeón.
-const FaqItem = ({ faq, isOpen, toggle, variants }) => {
+const FaqItem = ({ faq, isOpen, toggle, variants, theme }) => {
   const contentRef = useRef(null);
   const [height, setHeight] = useState(0);
 
@@ -29,14 +29,23 @@ const FaqItem = ({ faq, isOpen, toggle, variants }) => {
   }, [isOpen]);
 
   return (
-    <motion.div variants={variants} className='border-b border-gray-700'>
-      <button onClick={toggle} className='w-full cursor-pointer text-left flex justify-between items-center py-4 font-semibold text-white'>
+    <motion.div
+      variants={variants}
+      className={`border-b ${
+        theme === 'dark' ? 'border-gray-700' : 'border-gray-200'
+      }`}
+    >
+      <button onClick={toggle} className={`w-full cursor-pointer text-left flex justify-between items-center py-4 font-semibold ${
+        theme === 'dark' ? 'text-white' : 'text-[var(--heading-color)]'
+      }`}>
         <span>{faq.question}</span>
         <FontAwesomeIcon icon={isOpen ? faAngleUp : faAngleDown} className='ml-2' />
       </button>
       <div style={{ maxHeight: `${height}px` }} className='transition-all duration-500 ease-in-out overflow-hidden'>
         <div ref={contentRef}>
-          <p className='text-gray-400 px-2 pb-4'>
+          <p className={`px-2 pb-4 ${
+            theme === 'dark' ? 'text-gray-400' : 'text-[var(--text-color)]'
+          }`}>
             {faq.answer}
           </p>
         </div>
@@ -45,7 +54,7 @@ const FaqItem = ({ faq, isOpen, toggle, variants }) => {
   );
 };
 
-const ExperienceComponent = () => {
+const ExperienceComponent = ({ theme = "dark" }) => {
   const [openIndex, setOpenIndex] = useState(0);
 
   const toggle = (index) => {
@@ -70,10 +79,14 @@ const ExperienceComponent = () => {
   };
 
   return (
-    <div className='experience px-[2%] sm:px-[8%] lg:px-[12%] py-[50px] lg:py-[90px] bg-[#0e0700]'> 
+    <div className={`experience px-[2%] sm:px-[8%] lg:px-[12%] py-[50px] lg:py-[90px] ${
+      theme === 'dark' ? 'bg-[#0e0700]' : 'bg-white'
+    }`}> 
       <div className='experience-content flex justify-between lg:flex-row flex-col gap-3 lg:gap-0 items-start w-full'>
         <motion.h2 
-          className='xl:w-[50%] w-full text-white text-2xl md:text-5xl leading-tight unbounded-font'
+          className={`xl:w-[50%] w-full text-2xl md:text-5xl leading-tight unbounded-font ${
+            theme === 'dark' ? 'text-white' : 'text-[var(--heading-color)]'
+          }`}
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.5 }}
@@ -89,12 +102,16 @@ const ExperienceComponent = () => {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
         >
-          <p className='text-[#ffffff91] pt-2 pb-5 text-sm'>
+          <p className={`pt-2 pb-5 text-sm ${
+            theme === 'dark' ? 'text-[#ffffff91]' : 'text-[var(--text-color)]'
+          }`}>
             Our curated travel experiences are designed to inspire and delight. But don't just take our word for it see what our happy travelers have to say.
           </p>
           
           <div className="flex justify-end">
-            <button className="bg-white text-[#193555] hover:bg-[#193555] hover:text-white px-6 py-3 rounded-full text-sm font-semibold uppercase transition duration-300 shadow-md hover:shadow-lg">
+            <button className={`px-6 py-3 rounded-full text-sm font-semibold uppercase transition duration-300 shadow-md hover:shadow-lg ${
+              theme === 'dark' ? 'bg-white text-[#193555] hover:bg-[#193555] hover:text-white' : 'bg-[#193555] text-white hover:bg-[#0e0700]'
+            }`}>
               Learn More
             </button>
           </div>
@@ -116,6 +133,7 @@ const ExperienceComponent = () => {
               isOpen={openIndex === index}
               toggle={() => toggle(index)}
               variants={accordionItemVariants}
+              theme={theme}
             />
           );
         })}
